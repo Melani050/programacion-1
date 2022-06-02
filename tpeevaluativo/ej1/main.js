@@ -14,5 +14,5 @@ function calcular()
         }
     }
 
-    document.getElementById("h-resultado").textContent = descuento
+    document.getElementById("h-resultado").textContent = '$'+descuento
 }

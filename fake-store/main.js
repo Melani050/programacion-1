@@ -1,10 +1,9 @@
 const consumir = async (cat) =>{
-    const datos_recibidos = await fetch('https://fakestoreapi.com/products/categories/'+cat)
-    const productos = await datos_recibidos.json()
-
+    const datos = await fetch("https://fakestoreapi.com/products/category/"+categoria)
+    const producto = await datos.json()
     let cols = []
 
-    productos.forEach(element => {
+    producto.forEach(element => {
         let col = 
         `
         <div class="col-lg-3">
@@ -13,7 +12,7 @@ const consumir = async (cat) =>{
                 <div class="card-body">
                     <h5 class="card-title">${element.title}</h5>
                     <p class="card-text">${element.description}</p>
-                    <p class="card-text">${element.price}</p>
+                    <p class="card-text">${element.price}\$</p>
                     <a href="#" class="btn btn-primary">Comprar</a>
                 </div>
             </div>    
@@ -21,5 +20,5 @@ const consumir = async (cat) =>{
         `
         cols.push(col)
     });
-    document.getElementById("id_row").innerHTML = cols.join('')
+    document.getElementById("div_c").innerHTML = cols.join('')
 } 

@@ -19,13 +19,11 @@ const calcular = (temp) =>{
 }
 
 const mostrar = () =>{
-    const temperatura = document.getElementById("inp-temperatura").value
-
-    const resultado = calcular(temperatura)
     
+    const temperatura = document.getElementById("inp-temperatura").value
+    const resultado = calcular(temperatura)
     document.getElementById("h-resultado").textContent = resultado
 }
 
 const boton = document.getElementById("btn-analizar")
-
 boton.addEventListener("click",mostrar)
