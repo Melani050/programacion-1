@@ -91,9 +91,11 @@ const mostrar = () =>{
     }
     const titulo = framework.titulo
     const nombre = framework.nombre
-    const lenguaje = framework.características.lenguaje
+    /*const lenguaje = framework.características.lenguaje
     const patron = framework.características.patron
-    const spa = framework.características.spa
+    const spa = framework.características.spa*/
+
+    const { lenguaje,patron,spa } = framework.características
 
     console.log(`
         Titulo: ${titulo}
