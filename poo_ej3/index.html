@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Document</title> 
     <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap.bundle.min.js">
 </head>
 <body>
     <nav class="navbar bg-dark">
         <div class="container-fluid ">
-            <a class="navbar-brand " >Productos</a>
+            <a class="navbar-brand text-info " >Productos</a>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class="btn btn-outline-info" type="submit">Search</button>
             </form>
         </div>
     </nav>
@@ -36,6 +38,22 @@
                     <option value="3">TV</option>
                 </select>
                 <button id="btn_guardar" type="button" class="btn btn-outline-info">Guardar</button>
+            </div>
+            <div class="col-lg-8">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>Descripción</th>
+                            <th>Precion de venta</th>
+                            <th>Categoría</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
