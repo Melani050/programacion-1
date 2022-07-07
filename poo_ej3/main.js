@@ -37,3 +37,14 @@ function eliminar()
 //
 document.getElementById("btn_eliminar").addEventListener("click",eliminar)
 
+function actualizar()
+{
+    //creamos la instancia producto 
+    let producto = new Producto()
+    /**
+     * y a travez de la instancia accedemos e invocamos al metodo
+     * actualizar_producto()
+     */
+    producto.actualizar_producto()
+}
+document.getElementById("btn_actualizar").addEventListener("click",actualizar)

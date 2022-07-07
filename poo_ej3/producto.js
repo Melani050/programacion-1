@@ -33,8 +33,6 @@ export default class Producto {
     
         this.obtener_productos() 
     }
-
-
     obtener_productos()
     {   //item es un espacio
         /**
@@ -56,6 +54,9 @@ export default class Producto {
                         <button onclick="almacenar_indice(${index})" data-bs-toggle="modal" data-bs-target="#mymodal" class="btn btn-danger btn-sm" >
                             <i class="fa fa-trash"></i>                        
                         </button>
+                        <button onclick="completar_formulario(${index})" class="btn btn-primary btn-sm">
+                            <i class="fa fa-edit"></i>
+                        </button>
                     </td>
                 </tr>             
             `
@@ -73,6 +74,25 @@ export default class Producto {
         localStorage.setItem("productos", JSON.stringify(lista_productos))
         this.obtener_productos()
     }
+    actualizar_producto()
+    {
+        let indice = localStorage.getItem("indice")
+        //buscamos la lista de productos para poder editarlos
+        let listado_producto = JSON.parse(localStorage.getItem("productos"))
+        
+        //remplazamos con la nueva descripcion - sobreescritura
+        listado_producto[indice].descripcion = document.getElementById("inp_descripcion").value
+        listado_producto[indice].precio_venta = document.getElementById("inp_precio_venta").value
+        listado_producto[indice].categoria = document.getElementById("slt_cat").value
+        
+        //guardamos los cambios que tuvo listado_producto
+        localStorage.setItem("productos", JSON.stringify(listado_producto))
 
+        //refrescamos la lista
+        this.obtener_productos()
+
+        document.getElementById("btn_guardar").style.display ="block"
+        document.getElementById("btn_actualizar").style.display ="none"
+    }
 
 }
