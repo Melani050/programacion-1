@@ -31,7 +31,8 @@ export default class Producto {
         //lograr reconstruir la tabla, y asi reflejar los datos actualizados
         //que provienen del localStorage, especificamente del item "productos
     
-        this.obtener_productos() 
+        this.obtener_productos()
+        this.actualizar_producto()
     }
     obtener_productos()
     {   //item es un espacio
@@ -66,7 +67,6 @@ export default class Producto {
         document.getElementById("tbody").innerHTML = filas.join('')
 
     }
-
     eliminar_producto(indice)
     {
         let lista_productos = JSON.parse( localStorage.getItem("productos") )
@@ -93,6 +93,11 @@ export default class Producto {
 
         document.getElementById("btn_guardar").style.display ="block"
         document.getElementById("btn_actualizar").style.display ="none"
-    }
 
+        this.vaciar_formulario()
+    }
+    vaciar_formulario()
+    {
+        document.getElementById("form_producto").reset()
+    }
 }
