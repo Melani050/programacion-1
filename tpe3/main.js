@@ -18,3 +18,18 @@ function listar()
     articulo.obtener_articulo()
 }
 listar()
+
+function eliminar()
+{
+    let indice = localStorage.getItem("indice")
+    let articulo = new Articulo()
+    articulo.eliminar_articulo(indice)
+}
+document.getElementById("btn_eliminar").addEventListener("click",eliminar)
+
+function actualizar()
+{
+    let articulo = new Articulo()
+    articulo.actualizar_articulo()
+}
+document.getElementById("btn_actualizar").addEventListener("click",actualizar)

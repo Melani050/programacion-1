@@ -38,24 +38,61 @@ export default class Articulo{
             `
                 <tr>
                     <td>${index+1}</td>
-                    <td>${element.url}</td>
+                    <td>
+                        <img class="img-fluid" style="width:4rem" src="${element.url}"></img>
+                    </td>
                     <td>${element.descripcion}</td>
                     <td>${element.precio_venta}</td>
                     <td>${element.tipo}</td>
                     <td>${element.detalle}</td>
                     <td>
-                        <button class="btn btn-danger btn-sm">
+                        <button onclick="almacenar_indice(${index})"  data-bs-toggle="modal" data-bs-target="#mymodal" class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i>
                         </button>
-                        <button class="btn btn-primary btn-sm">
+                        <button onclick="completar_formulario(${index})" class="btn btn-primary btn-sm">
                             <i class="fa fa-edit"></i>
                         </button>
                     </td>
                 </tr>
+
             `
-            filas.push(filas)
+            filas.push(fila)
         });
 
     document.getElementById("tbody").innerHTML = filas.join('')
+    }
+    eliminar_articulo(indice)
+    {
+        let lista_articulos =JSON.parse(localStorage.getItem("articulos"))
+
+        lista_articulos.splice(indice,1)
+
+        localStorage.setItem("articulos",JSON.stringify(lista_articulos))
+
+        this.obtener_articulo()
+    }
+    actualizar_articulo()
+    {
+        let indice = localStorage.getItem("indice")
+        let listado_articulo = JSON.parse(localStorage.getItem("articulos"))
+
+        listado_articulo[indice].descripcion = document.getElementById("inp_descripcion").value
+        listado_articulo[indice].precio_venta = document.getElementById("inp_precio_venta").value
+        listado_articulo[indice].url = document.getElementById("inp_url").value
+        listado_articulo[indice].detalle = document.getElementById("inp_detalle").value
+        listado_articulo[indice].tipo = document.getElementById("slt_tipo").value
+
+        localStorage.setItem("articulo",JSON.stringify(listado_articulo))
+
+        this.obtener_articulo()
+
+        document.getElementById("btn_guardar").style.display ="block"
+        document.getElementById("btn_actualizar").style.display ="none"
+
+        this.vaciar_formulario()
+    }
+    vaciar_formulario()
+    {
+        document.getElementById("form_producto").reset()
     }
 }
