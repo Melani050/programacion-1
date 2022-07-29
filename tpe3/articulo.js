@@ -27,7 +27,6 @@ export default class Articulo{
         }
         this.obtener_articulo()
     }
-
     obtener_articulo()
     {
         let lista_articulo = JSON.parse(localStorage.getItem("articulos"))
@@ -60,6 +59,7 @@ export default class Articulo{
         });
 
     document.getElementById("tbody").innerHTML = filas.join('')
+    this.vaciar_formulario()
     }
     eliminar_articulo(indice)
     {
@@ -93,6 +93,6 @@ export default class Articulo{
     }
     vaciar_formulario()
     {
-        document.getElementById("form_producto").reset()
+        document.getElementById("form_articulo").reset()
     }
 }

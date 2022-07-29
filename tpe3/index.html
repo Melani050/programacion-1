@@ -10,9 +10,12 @@
     <script src="bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg" style="background-color: #8FBC8B	;">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Tienda de Pinturas</a>
+          <a class="navbar-brand" href="#">
+            <img class="img-fluid rounded-circle" style="width:4rem" src="https://c0.klipartz.com/pngpicture/969/49/gratis-png-paleta-de-arte-de-madera-de-color-beige-con-pinceles-de-arte-pincel-de-pintura-de-paleta-pintura.png" alt="pinceles y un tarro de pintura">
+            Tienda de Pinturas
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -31,11 +34,12 @@
           </div>
         </div>
     </nav>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
                 <h2 class="m-3">Cargar Producto</h2>
-                <form id="form_producto">
+                <form id="form_articulo">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Descripción:</span>
                         <input id="inp_descripcion" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
@@ -54,13 +58,13 @@
                     </div>
                     <select id="slt_tipo" class="form-select mb-3">
                         <option selected>Tipo:</option>
-                        <option value="1">Acrílico</option>
+                        <option value="Acrílico">Acrílico</option>
                         <option value="2">Acuarela</option>
                         <option value="3">Oleo</option>
                         <option value="4">Textil</option>
                     </select>
                 </form>
-                <button id="btn_guardar" type="button" class="btn btn-outline-info">Guardar</button>
+                <button id="btn_guardar" type="button" class="btn btn-outline" style="background-color: #B0C4DE">Guardar</button>
                 <button style="display: none;" id="btn_actualizar" type="button" class="btn btn-outline-primary">Actualizar</button>
             </div>
             <div class="col-lg-8">
