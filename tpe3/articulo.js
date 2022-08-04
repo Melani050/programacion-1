@@ -95,4 +95,27 @@ export default class Articulo{
     {
         document.getElementById("form_articulo").reset()
     }
+    construir_catalogo()
+    {
+        let lista_articulo = JSON.parse(localStorage.getItem("articulos"))
+        let filas = []
+
+        lista_articulo.forEach((element, index)=> {
+            let fila = 
+            `
+            <div class="card m-1" style="width: 18rem;">
+                <img src="${element.url}" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${element.descripcion}</h5>
+                    <p class="card-text">\$${element.precio_venta}</p>
+                    <button id = "btn_agregar" onclick="agregar('${element.descripcion}','${element.precio_venta}')" class="btn btn-primary btn-sm">Agregar</button>
+                </div>
+            </div>
+            `
+            filas.push(fila)
+        });
+        document.getElementById("col_card").innerHTML = filas.join('')
+    }
+   
+
 }
